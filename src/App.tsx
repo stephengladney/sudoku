@@ -32,6 +32,7 @@ function App() {
     if (indexBeingEdited) {
       setTimeout(() => {
         const newValue = prompt("Enter value")
+        if (!newValue) return
         if (Number(newValue) < 0 || Number(newValue) > 9) {
           return alert("Invalid number")
         }
