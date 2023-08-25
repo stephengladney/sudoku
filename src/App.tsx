@@ -64,7 +64,7 @@ function App() {
             <div
               className={`border-[1px] border-solid border-black py-3 px-5 font-bold text-4xl ${
                 indexBeingEdited === i ? "bg-slate-300" : ""
-              } ${isUserInputted(number) ? "text-red-500" : ""}`}
+              } ${isUserInputted(number) ? "text-blue-500" : ""}`}
               key={`number-${i}`}
               onClick={() => {
                 if (canEdit(number)) setIndexBeingEdited(i)
@@ -74,7 +74,11 @@ function App() {
             </div>
           ))}
       </div>
-      <button onClick={handleCheckAnswersClick}>Check answers</button>
+      {!!uiBoard.length && (
+        <button className="mt-5 text-white" onClick={handleCheckAnswersClick}>
+          Check answers
+        </button>
+      )}
     </>
   )
 }
