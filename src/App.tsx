@@ -48,11 +48,12 @@ function App() {
   }
 
   const handleNumberGuess = (n?: number) => {
-    if (n) {
+    if (n || n === 0) {
       const newUiBoard = [...uiBoard]
       newUiBoard[indexBeingEdited!] = n + "!"
       setIndexBeingEdited(null)
       setUiBoard(newUiBoard)
+      setNumberToGuess(undefined)
     }
   }
 
@@ -148,6 +149,7 @@ function App() {
             maxLength={1}
             onChange={(e) => setNumberToGuess(Number(e.target.value))}
             step={1}
+            value={numberToGuess ?? ""}
           />
         </form>
       </dialog>
