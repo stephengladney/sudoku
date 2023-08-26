@@ -1,11 +1,4 @@
-import {
-  getRange,
-  isNumeric,
-  pauseAsync,
-  randomNumber,
-  shave,
-  shuffle,
-} from "gladknee"
+import { getRange, pauseAsync, randomNumber, shave, shuffle } from "gladknee"
 
 export type Board = {
   "0": number[]
@@ -125,5 +118,5 @@ export function getNumberToDisplay(n: string | number) {
 }
 
 export function canEdit(n: string | number) {
-  return !n || String(n).includes("!")
+  return n !== 0 && (!n || String(n).includes("!"))
 }
