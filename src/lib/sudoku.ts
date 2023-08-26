@@ -92,14 +92,13 @@ export function getUiBoardAsNumberArray(board: UIBoard) {
   })
 }
 
-export async function getUiBoard(board: Board, squaresToHide: number) {
+export function getUiBoard(board: Board, squaresToHide: number) {
   const boardNumbers: (number | string)[] = getBoardAsNumberArray(board)
   const removedIndexes: number[] = []
   let randomIndex = 0
   for (let i = 1; i <= squaresToHide; i++) {
     randomIndex = randomNumber(0, boardNumbers.length - 1)
     while (removedIndexes.includes(randomIndex)) {
-      pauseAsync(1000)
       randomIndex = randomNumber(0, boardNumbers.length - 1)
     }
     boardNumbers[randomIndex] = "" // Set hidden numbers to ""
