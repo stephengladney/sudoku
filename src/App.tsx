@@ -51,7 +51,7 @@ function App() {
     if (n || n === 0) {
       const newUiBoard = [...uiBoard]
       newUiBoard[indexBeingEdited!] = n + "!"
-      setIndexBeingEdited(null)
+      // setIndexBeingEdited(null)
       setUiBoard(newUiBoard)
       setNumberToGuess(undefined)
     }
@@ -114,7 +114,7 @@ function App() {
                   canEdit(number)
                     ? "cursor-pointer hover:bg-blue-200"
                     : "cursor-default"
-                }`}
+                } ${indexBeingEdited === i ? "border-4 border-blue-700" : ""}`}
                 key={`number-${i}`}
                 onClick={() => {
                   if (canEdit(number)) {
@@ -151,6 +151,9 @@ function App() {
             step={1}
             value={numberToGuess ?? ""}
           />
+        </form>
+        <form method="dialog" className="modal-backdrop opacity-5">
+          <button>close</button>
         </form>
       </dialog>
     </>
