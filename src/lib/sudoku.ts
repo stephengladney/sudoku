@@ -1,4 +1,4 @@
-import { getRange, pauseAsync, randomNumber, shave, shuffle } from "gladknee"
+import { getRange, randomNumber, shave, shuffle } from "gladknee"
 
 export type Board = {
   "0": number[]
